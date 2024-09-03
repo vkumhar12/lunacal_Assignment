@@ -85,14 +85,14 @@ const Gallery = () => {
           </div>
         </div>
       </div>
-      <div className="w-[620px] h-44 overflow-x-auto">
+      <div className="w-[620px] h-44 overflow-x-scroll example">
         <div
           ref={galleryRef}
-          className="flex gap-7 items-center w-max"
+          className="grid grid-cols-3 gap-8 items-center w-max"
           style={{ scrollBehavior: "smooth" }}
         >
           {arrayImages.map((item, index) => (
-            <div key={index} className="flex-shrink-0">
+            <div key={index} className="">
               <img
                 src={item.path}
                 alt={item.name}

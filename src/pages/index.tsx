@@ -7,23 +7,13 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Your Page Title</title>
-        <meta
-          name="description"
-          content="A brief description of your page for SEO purposes."
-        />
+        <title>Lunacal Assignment</title>
+        <meta name="description" />
         <meta name="author" content="Vikash Kumhar" />
-        <meta property="og:title" content="Your Page Title" />
+        <meta property="og:title" content="Lunacal Assignment" />
         <meta property="og:description" content="Assignment description" />
         <meta property="og:image" content="/path/to/your/image.jpg" />
         <meta property="og:url" content="https://yourwebsite.com" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Lunacal Assignment" />
-        <meta
-          name="twitter:description"
-          content="A brief description of your page for Twitter."
-        />
-        <meta name="twitter:image" content="/path/to/your/image.jpg" />
       </Head>
 
       <div className="flex gap-5 justify-center items-center w-full px-10 md:px-5 lg:px-7 2xl:px-9 bg-[#24292F] min-h-screen">
