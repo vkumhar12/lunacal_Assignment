@@ -1,33 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.example::-webkit-scrollbar {
+  display: none;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.example {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 0;
+  margin: 0;
+  background-color: #f5f8f9;
+  color: black;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  scroll-behavior: smooth !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.arrow{
+  border-radius: 50%;
+background: #2a2c30;
+box-shadow:  6px 6px 20px #ffffff,
+             -20px -20px 60px #303337;
+}
+
+.custom-box-with-shadow {
+  /* box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;; */
+             padding: 1rem;
+             border-radius: 10px;
+background: #e0e0e0;
+}
+.nav-button {
+  width: 40px;
+  height: 40px;
+  background-color: #3b3b3b;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.nav-button:hover {
+  box-shadow: 7px 7px 17px rgba(0, 0, 0, 0.6), -7px -7px 17px rgba(255, 255, 255, 0.2);
+}
+
+.image-button {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #41474E;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+/* Button hover effect */
+.image-button:hover {
+  box-shadow: 7px 7px 17px rgba(0, 0, 0, 0.6), -7px -7px 17px rgba(255, 255, 255, 0.2);
 }
