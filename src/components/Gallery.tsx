@@ -81,7 +81,7 @@ const Gallery = () => {
         </div>
       </div>
       <div className="w-full h-44 overflow-x-scroll example">
-        <div className="grid grid-cols-3 gap-7 items-center">
+        <div className="grid grid-cols-3 lg:gap-7 md:gap-16 items-center">
           {arrayImages.map((item, index) => (
             <div key={index}>
               <img
