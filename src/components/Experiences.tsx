@@ -1,6 +1,6 @@
 const Experiences = () => {
   return (
-    <div className="flex flex-col gap-2 h-44 overflow-x-scroll example text-[#959595]">
+    <div className="flex flex-col gap-2 lg:h-44 md:h-32 overflow-x-scroll example text-[#959595]">
       <p className="text-lg font-normal tracking-wide">
         XYZ Technologies, Bhubaneswar March 2023
       </p>

@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <div className="flex flex-col gap-2 h-44 overflow-x-scroll example text-[#959595]">
+    <div className="flex flex-col gap-2 lg:h-44 md:h-32 overflow-x-scroll example text-[#959595]">
       <p className="text-lg font-normal tracking-wide">
         Hello! I’m Dave, your sales rep here from Salesforce. I’ve been working
         at this awesome company for 3 years now.

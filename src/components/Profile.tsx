@@ -42,7 +42,7 @@ export default function ProfileComponent() {
   }
   return (
     <div className="flex justify-center items-center ">
-      <div className=" flex flex-col text-white w-full justify-center items-center">
+      <div className=" flex flex-col text-white w-full justify-center items-center pt-2">
         <div className="flex justify-evenly items-center overflow-x-scroll bg-black p-2 rounded-2xl example sticky top-0 ">
           {aboutArray.map((item, index) => {
             return (

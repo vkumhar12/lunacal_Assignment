@@ -1,22 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { IoMdAdd } from "react-icons/io";
 import Swal from "sweetalert2";
 
 const Gallery = () => {
   const [arrayImages, setArrayImages] = useState([
-    { name: "image1", path: "/image.jpeg" },
-    { name: "image2", path: "/image.jpeg" },
-    { name: "image3", path: "/image.jpeg" },
+    {
+      name: "image1",
+      path: "/image.jpeg",
+    },
+    {
+      name: "image2",
+      path: "/image.jpeg",
+    },
+    {
+      name: "image3",
+      path: "/image.jpeg",
+    },
   ]);
 
   const [showDialog, setShowDialog] = useState(false);
   const [imageName, setImageName] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const galleryRef = useRef<HTMLDivElement | null>(null);
 
   const handleImageNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setImageName(e.target.value);
@@ -29,40 +35,29 @@ const Gallery = () => {
   };
 
   const handleAddImage = () => {
-    if (!imageName || !imageFile) {
-      setErrorMessage("Please provide both an image name and an image file.");
-      return;
-    }
+    if (imageName && imageFile) {
+      // Create a URL for the image file
+      const imageUrl = URL.createObjectURL(imageFile);
 
-    const imageUrl = URL.createObjectURL(imageFile);
+      setArrayImages([...arrayImages, { name: imageName, path: imageUrl }]);
+      setImageName("");
+      setImageFile(null);
+      setShowDialog(false);
 
-    setArrayImages([...arrayImages, { name: imageName, path: imageUrl }]);
-    setImageName("");
-    setImageFile(null);
-    setErrorMessage("");
-    setShowDialog(false);
-
-    Swal.fire({
-      icon: "success",
-      title: "Image Added",
-      text: "The image has been successfully added to the gallery.",
-    });
-  };
-
-  const scrollLeft = () => {
-    if (galleryRef.current) {
-      galleryRef.current.scrollBy({ left: -200, behavior: "smooth" });
-    }
-  };
-
-  const scrollRight = () => {
-    if (galleryRef.current) {
-      galleryRef.current.scrollBy({ left: 200, behavior: "smooth" });
+      Swal.fire({
+        title: "Image Added",
+        text: "Your image has been added successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+        customClass: {
+          popup: "responsive-swal-popup",
+        },
+      });
     }
   };
 
   return (
-    <div className="rounded-2xl flex flex-col gap-8 justify-center items-center w-[620px]">
+    <div className="rounded-2xl flex flex-col gap-8 justify-center items-center w-full max-w-[620px]  pt-2">
       <div className="h-16 flex justify-between items-center w-full">
         <button className="w-36 h-16 bg-black text-white rounded-3xl">
           Gallery
@@ -76,42 +71,34 @@ const Gallery = () => {
             <span className="text-xs">ADD IMAGE</span>
           </button>
           <div className="flex gap-2 items-center">
-            <button className="nav-button" onClick={scrollLeft}>
+            <button className="nav-button">
               <FiArrowLeft className="text-2xl text-gray-400 m-2" />
             </button>
-            <button className="nav-button" onClick={scrollRight}>
+            <button className="nav-button">
               <FiArrowRight className="text-2xl text-gray-400 m-2" />
             </button>
           </div>
         </div>
       </div>
-      <div className="w-[620px] h-44 overflow-x-scroll example">
-        <div
-          ref={galleryRef}
-          className="grid grid-cols-3 gap-8 items-center w-max"
-          style={{ scrollBehavior: "smooth" }}
-        >
+      <div className="w-full h-44 overflow-x-scroll example">
+        <div className="grid grid-cols-3 gap-7 items-center">
           {arrayImages.map((item, index) => (
-            <div key={index} className="">
+            <div key={index}>
               <img
                 src={item.path}
                 alt={item.name}
-                className="rounded-3xl w-48 h-44"
+                className="rounded-3xl w-full h-44 sm:w-40 sm:h-40"
               />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Dialog */}
       {showDialog && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">Add Image</h2>
             <form>
-              {errorMessage && (
-                <p className="text-red-500 mb-4">{errorMessage}</p>
-              )}
               <div className="mb-4">
                 <label
                   htmlFor="imageName"

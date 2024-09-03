@@ -69,3 +69,23 @@ background: #e0e0e0;
 .image-button:hover {
   box-shadow: 7px 7px 17px rgba(0, 0, 0, 0.6), -7px -7px 17px rgba(255, 255, 255, 0.2);
 }
+
+/* Custom class for SweetAlert2 popup */
+.responsive-swal-popup {
+  width: 90% !important;
+  max-width: 500px;
+}
+
+@media (min-width: 768px) {
+  .responsive-swal-popup {
+    width: 60% !important;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-swal-popup {
+    width: 40% !important;
+    max-width: 300px;
+  }
+}

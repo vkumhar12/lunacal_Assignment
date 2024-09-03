@@ -1,6 +1,6 @@
 const Recommended = () => {
   return (
-    <div className="flex flex-col gap-2 h-44 overflow-x-scroll example text-[#959595]">
+    <div className="flex flex-col gap-2 lg:h-44 md:h-32 overflow-x-scroll example text-[#959595]">
       <h2>Recommended for You</h2>
       <p>
         {`Based on your recent activity and preferences, we think you'll love`}
